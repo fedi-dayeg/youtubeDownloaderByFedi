@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="youtubeDownloaderByFedi.WindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:youtubeDownloaderByFedi"
+             mc:Ignorable="d" 
+              d:DesignWidth="480">
+    <UserControl.Resources>
+        <Storyboard x:Key="ShowSettingspnl">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,-200,0,0" To="0,-110,0,0" AccelerationRatio=".10" Duration="0:0:1"/>  
+        </Storyboard>
+        <Storyboard x:Key="HideSettingspnl">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin"  From="0,-110,0,0" To="0,-200,0,0" AccelerationRatio=".12" Duration="0:0:1" />
+        </Storyboard>
+        <Style x:Key="MyTextStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="#8ac2da"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#9bd9f3"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel VerticalAlignment="Top" Height="39" Background="#1786b6" LastChildFill="False">
+            <Button Content="r" FontFamily="Marlett" Foreground="#8ac2da" DockPanel.Dock="Right" Width="30" Height="40" Click="Button_Click"/>
+            <Button Content="0" FontFamily="Marlett" Foreground="#8ac2da"
+                    DockPanel.Dock="Right" Width="30" Height="40" Click="Button_Click_1"/>
+            <TextBlock DockPanel.Dock="Right" Width="9" Text="|" VerticalAlignment="Center" Foreground="#8ac2da" TextAlignment="Right"/>
+            <TextBlock Style="{StaticResource MyTextStyle}" DockPanel.Dock="Right" Text="" FontFamily="IcoMoon-Free" FontSize="18" VerticalAlignment="Center" Height="18" Width="24" />
+            <TextBlock DockPanel.Dock="Right" Width="20" Text="|  " VerticalAlignment="Center" Foreground="#8ac2da" TextAlignment="Right"/>
+            <TextBlock Style="{StaticResource MyTextStyle}"
+                       DockPanel.Dock="Right" Name="settings" Text="settings" VerticalAlignment="Center" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+            <Grid>
+                <DockPanel.Dock>Left</DockPanel.Dock>
+                <Rectangle Fill="#0071bc" Width="30"></Rectangle>
+                <Image RenderOptions.BitmapScalingMode="HighQuality"
+                       DockPanel.Dock="Left" Source="Resources\AppLogo.png" Width="25"/>
+            </Grid>
+            <TextBlock Text="Youtube" FontSize="15" DockPanel.Dock="Left" VerticalAlignment="Center" Foreground="White" FontFamily="Segoe UI"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,63 @@
+﻿<Window x:Class="youtubeDownloaderByFedi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:youtubeDownloaderByFedi"
+        WindowStyle="None"
+        x:Name="MyApplicationWindow"
+        xmlns:custom="clr-namespace:youtubeDownloaderByFedi"
+        AllowsTransparency="True"
+        Background="#252525" Height="226" Width="782"
+        Icon="Resources/Icon.ico"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Loaded="MyApplicationWindow_Loaded"
+        MouseDown="MyApplicationWindow_MouseDown">
+
+    <Window.Resources>
+        <Storyboard x:Key="TransitionAnimation">
+            <ThicknessAnimation
+                Storyboard.TargetProperty="Margin" From="100,1,-100,1" To="1,1,-1,1" AccelerationRatio=".15" Duration="0:0:0.4">
+                <ThicknessAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseInOut">                      
+                    </CubicEase>
+                </ThicknessAnimation.EasingFunction>
+            </ThicknessAnimation>
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" AccelerationRatio=".5" Duration="0:0:1"/>            
+        </Storyboard>                    
+    </Window.Resources>
+
+    <Grid>
+    <Grid x:Name="SettingsBar">
+        <custom:SettingsPanel x:Name="settingBar" Margin="0,-200,0,0"/>
+    </Grid>
+
+
+    <Grid x:Name="AppBar">
+        <custom:WindowControl Grid.RowSpan="6" Grid.ColumnSpan="5"/>
+    </Grid>
+    <Grid Visibility="Visible" x:Name="MainApp">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="94*" />
+                <RowDefinition Height="28*" />
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="12" />
+                <RowDefinition Height="11" />
+                <RowDefinition Height="32*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="172*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="12*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="145*" />
+            </Grid.ColumnDefinitions>
+            <TextBox Style="{StaticResource TextBoxStyle}" TextAlignment="Left" Height="23" HorizontalAlignment="Left" Name="UrlInput" VerticalAlignment="Top" Width="344" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"/>
+            <Button Style="{StaticResource ButtonStyle}" Height="23" Content="Convert" Width="87" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2" Click="Button_Click"/>
+            <TextBlock FontFamily="Segoe UI" FontSize="20" Grid.Row="1" Grid.Column="1" Height="27" HorizontalAlignment="Left" Text="Convert Youtube Video To MP3" VerticalAlignment="Top" Width="317" Foreground="White" Margin="0,1,0,0"/>
+        </Grid>
+    </Grid>
+
+</Window>
