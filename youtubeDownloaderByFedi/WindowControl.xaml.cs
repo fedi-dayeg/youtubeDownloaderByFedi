@@ -28,18 +28,42 @@ namespace youtubeDownloaderByFedi
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Window window = Window.GetWindow(this);
+            window.WindowState = WindowState.Minimized;
         }
 
        
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+            UserControl bar = ((MainWindow)System.Windows.Application.Current.MainWindow).settingBar;
+            AnimateBar("ShowSettingspnl", settings, bar);
+
+        }
+
+        bool animateState = true;
+        private void AnimateBar(string storyBoard, TextBlock btn, UserControl settingBar)
+        {
+            animateState = !animateState;
+            if(animateState == false)
+            {
+                Storyboard sb = Resources["ShowSettingspnl"] as Storyboard;
+                sb.Begin(settingBar);
+            }
+            else
+            {
+                Storyboard sb = Resources["HideSettingspnl"] as Storyboard;
+                sb.Begin(settingBar);
+            }
+        }
+
+        private void TextBlock_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MyApplicationWindow_Loaded(sender, e);
         }
     }
 }

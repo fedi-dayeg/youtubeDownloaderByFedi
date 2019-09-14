@@ -38,7 +38,7 @@
     <Grid x:Name="AppBar">
         <custom:WindowControl Grid.RowSpan="6" Grid.ColumnSpan="5"/>
     </Grid>
-    <Grid Visibility="Visible" x:Name="MainApp">
+    <Grid Visibility="Hidden" x:Name="MainApp">
             <Grid.RowDefinitions>
                 <RowDefinition Height="94*" />
                 <RowDefinition Height="28*" />
@@ -57,6 +57,28 @@
             <TextBox Style="{StaticResource TextBoxStyle}" TextAlignment="Left" Height="23" HorizontalAlignment="Left" Name="UrlInput" VerticalAlignment="Top" Width="344" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"/>
             <Button Style="{StaticResource ButtonStyle}" Height="23" Content="Convert" Width="87" HorizontalAlignment="Left" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2" Click="Button_Click"/>
             <TextBlock FontFamily="Segoe UI" FontSize="20" Grid.Row="1" Grid.Column="1" Height="27" HorizontalAlignment="Left" Text="Convert Youtube Video To MP3" VerticalAlignment="Top" Width="317" Foreground="White" Margin="0,1,0,0"/>
+        </Grid>
+        <Grid x:Name="Loading" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="336*" />
+                <ColumnDefinition Width="101*" />
+                <ColumnDefinition Width="323*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="82*" />
+                <RowDefinition Height="76*" />
+                <RowDefinition Height="29*" />
+            </Grid.RowDefinitions>
+            <custom:LoadingControl x:Name="LoadingControl" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="306,42,294,26" Grid.Row="1" Height="51" Width="160" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        </Grid>
+        <Grid x:Name="Done" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="121*" />
+                <RowDefinition Height="66*" />
+            </Grid.RowDefinitions>
+            <TextBlock FontFamily="IcoMoon-Free" Text="" FontSize="40" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="360,0,360,63" Grid.RowSpan="2"/>
+            <TextBlock FontFamily="Segoe UI" FontSize="14" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Height="27" Text="Your Video Have Been Converted Successfully ..." Foreground="White" Grid.Row="1"/>
         </Grid>
     </Grid>
 

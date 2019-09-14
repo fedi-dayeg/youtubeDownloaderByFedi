@@ -28,7 +28,9 @@
             <Button Content="0" FontFamily="Marlett" Foreground="#8ac2da"
                     DockPanel.Dock="Right" Width="30" Height="40" Click="Button_Click_1"/>
             <TextBlock DockPanel.Dock="Right" Width="9" Text="|" VerticalAlignment="Center" Foreground="#8ac2da" TextAlignment="Right"/>
-            <TextBlock Style="{StaticResource MyTextStyle}" DockPanel.Dock="Right" Text="" FontFamily="IcoMoon-Free" FontSize="18" VerticalAlignment="Center" Height="18" Width="24" />
+            <TextBlock Style="{StaticResource MyTextStyle}" DockPanel.Dock="Right" 
+                       Text="" FontFamily="IcoMoon-Free" FontSize="18" 
+                       VerticalAlignment="Center" Height="18" Width="24" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown_1" />
             <TextBlock DockPanel.Dock="Right" Width="20" Text="|  " VerticalAlignment="Center" Foreground="#8ac2da" TextAlignment="Right"/>
             <TextBlock Style="{StaticResource MyTextStyle}"
                        DockPanel.Dock="Right" Name="settings" Text="settings" VerticalAlignment="Center" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
